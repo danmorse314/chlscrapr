@@ -4,13 +4,7 @@ get_chl_schedule <- function(season, league = c("WHL","OHL","QMJHL"), season_typ
   
   league_code <- ifelse(tolower(league) == "qmjhl","lhjmq",tolower(league))
   
-  if(tolower(league) == "ohl"){
-    key <- "2976319eb44abe94&="
-  } else if(tolower(league) == "whl"){
-    key <- "41b145a848f4bd67"
-  } else if(tolower(league) == "qmjhl"){
-    key <- "f322673b6bcae299"
-  }
+  key <- get_league_key(league)
   
   url <- paste0("https://lscluster.hockeytech.com/feed/?feed=modulekit&view=seasons&key=",key,"&fmt=json&client_code=",league_code,"&lang=en&league_code=&fmt=json")
   
