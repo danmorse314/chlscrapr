@@ -18,7 +18,7 @@ transparent <- function(img) {
 
 schedule <- get_chl_schedule(2023, "ohl", "Reg")
 
-game_id <- dplyr::filter(schedule, date_played == Sys.Date())$game_id[7]
+game_id <- dplyr::filter(schedule, date_played == Sys.Date()-1)$game_id[7]
 
 pbp <- scrape_chl_game(game_id, "OHL")
 
